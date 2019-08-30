@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href = "/style.css"/>
+</head>
+<body>	
+							
+				<form method="post" th:action="@{/save}" th:object="${product}">
+					
+				<h1>PRODUTO</h1>			
+				
+				<input type="number" name="id" id="id" placeholder="Id" class="field" th:field="*{id}"readonly="readonly">
+				
+				<br><input type="text" th:field="*{nome}" name="nome" id="nome" placeholder="Nome:"/>
+								
+				<br><input type="text" th:field="*{brand}" name="brand" id="brand" placeholder="Marca:"/>
+							
+				<br><input type="text" th:field="*{madein}" name="madein" id="madein" placeholder="Criado:"/>
+								
+				<br><input type="number" th:field="*{price}" name="price" id="price" placeholder="Preço:"/>
+							
+				<br><button class="botao" type="submit">Salvar</button>
+			
+			</form>	
+			<form method="post" action="/"><button class="botao" onclick="submit();">Voltar</button></form>
+				
+			
+</body>
+</html>

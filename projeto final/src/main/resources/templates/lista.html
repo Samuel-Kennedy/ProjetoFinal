@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href = "/style.css"/>
+<title>Insert title here</title>
+</head>
+<body>
+<div align="center">
+<form method="post" action="produtos/templates">
+<h1>Lista de produtos</h1>
+	<table border="1">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Marca</th>
+        <th>Criado</th>
+        <th>Preço</th>   
+        <th>Ações</th>       
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="product: ${products}">
+        <td th:text="${product.id}">Produto id</td>
+        <td th:text="${product.nome}">Nome</td>
+        <td th:text="${product.brand}">Marca</td>
+        <td th:text="${product.madein}">Criado</td>
+        <td th:text="${product.price}">Preço</td>              
+        <td>
+        	<a class=boted th:href="@{'/editar/' + ${product.id}}">Editar</a>
+        	&nbsp;&nbsp;&nbsp;
+        	<a class=boted th:href="@{'/delete/' + ${product.id}}">Deletar</a>
+        </td>
+      </tr>                   
+    </tbody>
+    </table>    
+    </form>
+    <form method="post" action="/inicial"><button class=botao>Criar novo produto</button></form>
+    <form method="post" action="/"><button class="botao" onclick="submit();">Voltar</button></form>   
+    
+    </div>
+</body>
+</html>
